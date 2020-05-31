@@ -1,0 +1,30 @@
+<h1>Detalhes da musica</h1>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @music.name %>
+</p>
+
+<p>
+  <strong>Explicito:</strong>
+  <% if (@music.explicit == true); explicit = "Sim"; else explicit = "Nao"; end; %>
+    <%= explicit %>
+    </p>
+
+<p>
+  <strong>Album:</strong>
+  <%= @music.album.name %>
+</p>
+
+<p>
+  <strong>Genero musical:</strong>
+  <%= @music.musical_genre.name %>
+</p>
+
+<p>
+  <strong>Adicionado em:</strong>
+  <%= @music.created_at %>
+</p>
+
+<%= link_to 'Editar', edit_music_path(@music) %>
+<%= link_to 'Voltar', musics_path %>
