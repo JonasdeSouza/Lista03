@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'application#homepage'
 
-  resources :albums, :musics
+  resources :application, only: [:index]
+  resources :albums, :musics, :apis
+
 
 end

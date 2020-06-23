@@ -12,7 +12,10 @@ MusicalGenre.create(name: "Funk")
 MusicalGenre.create(name: "MPB")
 MusicalGenre.create(name: "Jazz")
 MusicalGenre.create(name: "Classica")
+
+
 Album.create(name: "Odiosa Natureza Humana", artist: "Matanza")
+
 Music.create(name: "Remedios de Mais", explicit: true, album_id: 1, musical_genre_id: 1)
 Music.create(name: "Em Respeito ao Vicio", explicit: true, album_id: 1, musical_genre_id: 1)
 Music.create(name: "Ela Nao Me Perdoou", explicit: true, album_id: 1, musical_genre_id: 1)
@@ -26,3 +29,10 @@ Music.create(name: "Conforme Disseram As Vozes", explicit: true, album_id: 1, mu
 Music.create(name: "Melhor Sem Voce", explicit: true, album_id: 1, musical_genre_id: 1)
 Music.create(name: "A Menor Paciencia", explicit: true, album_id: 1, musical_genre_id: 1)
 
+
+Album.create(name: "Pior cenario possivel", artist: "Matanza")
+Album.create(name: "Thunder Dope", artist: "Matanza")
+Album.create(name: "A arte do insulto", artist: "Matanza")
+Album.create(name: "To hell with Johnny Cash", artist: "Matanza")
+Album.create(name: "Santa Madre Cassino", artist: "Matanza")
+Album.create(name: "Musica para beber e brigar", artist: "Matanza")

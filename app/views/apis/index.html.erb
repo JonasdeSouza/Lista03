@@ -1,0 +1,9 @@
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%=javascript_include_tag 'calendar.js' %>
+<% javascript_include_tag "custom" %>
+<button id="album_button" type="button" class="btn btn-secondary" onclick="show_button('event_calendar', 'myChart')">Calendario</button>
+<button id="album_button" type="button" class="btn btn-secondary" onclick="show_button('myChart', 'event_calendar')">Dados da covid-19</button>
+<div id="event_calendar"></div>
+
+<%= javascript_include_tag 'chart.js' %>
+<canvas id="myChart"></canvas>

@@ -1,5 +1,72 @@
-<strong><h4><p style="text-align: center;">Bem vindo ao site de albuns do jonas</p></h4></strong>
+<% javascript_include_tag "custom" %>
+<div class="container-fluid">
+  <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
+    <a href="#" class="navbar-brand d-flex w-50 mr-auto">Jonas Musics</a>
+    <div class="navbar-collapse collapse w-100" id="collapsingNavbar">
+      <ul class="navbar-nav w-100 justify-content-end">
+        <li class="nav-item">
+          <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+              <button id="album_button" type="button" class="btn btn-secondary" onclick="show_button('albums', 'musics')">Albuns</button>
+              <button id="music_button" type="button" class="btn btn-secondary" onclick="show_button('musics', 'albums')">Musicas</button>
+            </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
 
-<%= link_to 'Albums', albums_path %>
+
 <p></p>
-<%= link_to 'Musicas', musics_path %>
+<div class="page container-fluid albums" id="albums">
+<H1> Albuns </H1>
+  <div class="row">
+  <% @albums.each do |album| %>
+      <div class="col-4">
+        <div class="card border-dark mb-3" style="width: 20rem;">
+          <img src="https://www.vagalume.com.br/<%=getlink(album.artist)%>/discografia/<%=getlink(album.name)%>.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <a href="/albums/<%=album.id%>" style="color: black">
+              <h5 id="status_<%=album.name%>" class="card-title"><%= album.name %> </h5>
+            </a>
+            <h6 class="card-subtitle mb-2 text-muted"><%= album.artist %></h6>
+            <p class="card-text"></p>
+            <button class="btn" onclick="listened('status_<%=album.name%>')" style="color: gray">
+              <i class="fas fa fa-check-circle" title="Escutado"></i>
+            </button>
+            <button class="btn" onclick="not_listened('status_<%=album.name%>')" style="color: gray">
+              <i class="fas fa fa-times" title="Nao escutado"></i>
+            </button>
+            <button class="btn" onclick="remove('status_<%=album.name%>')" style="color: gray">
+              <i class="fas fa fa-ban" title="Remover efeito"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div class="col-4">
+      <div class="card border-dark mb-3" style="width: 20rem;">
+        <img src="https://static.thenounproject.com/png/30444-200.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Novo album</h5>
+          <p class="card-text"></p>
+          <a href="/albums/new" class="btn btn-success">Adicionar album</a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+<p></p>
+
+<div class="page container-fluid musics" id="musics">
+  <H1> Musicas </H1>
+  <% @musics.each do |music| %>
+    <div class="list-group">
+      <a href="/musics/<%=music.id%>" class="list-group-item list-group-item-action"><%= music.name %> <small class="text-muted"> (<%= music.album.name %>) </small><button class="btn" onclick="like('like_<%=music.id%>')" style="border-radius: 15px"><i id="like_<%=music.id%>" class="fas fa fa-heart"></i></button></a>
+    </div>
+    <% end %>
+  <div class="list-group">
+    <a href="/musics/new" class="list-group-item list-group-item-action">Nova musica</a>
+  </div>
+</div>
